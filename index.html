@@ -518,7 +518,8 @@
     <!-- ========== FOOTER ========== -->
     <footer>
         <b>
-            <i><a href="https://g.page/r/CYAWI63gBKujEBM/review" class="tf-button style1">Review Us on Google</a></i>
+            <a href="#" class="tf-button style1" onclick="openReview()">Review Us</a>
+
         <br>
         
             <a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;">  <i class="fas fa-tools"></i>  By</a>
@@ -621,5 +622,40 @@
             document.body.removeChild(link);
         }
     </script>
+    
+<script>
+    function openReview() {
+      const googleReviewURL = "https://g.page/r/CYAWI63gBKujEBM/review"; // Google Maps review link
+      const appleMapsURL = "https://maps.apple.com/?address=19%20Nelson%20St,%20Auckland%20CBD,%20Auckland%201010,%20New%20Zealand&auid=5316125298387172135&ll=-36.847273,174.760054&lsp=9902&q=Nelson%20Cafe&t=m"; // Apple Maps link
+  
+      // Check if the device is iOS
+      const isIOS = !!navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      // Check if the device is Android
+      const isAndroid = !!navigator.userAgent.match(/Android/i);
+  
+      if (isIOS) {
+        // iOS devices: try Google Maps first
+        const googleMapsAppURL = `comgooglemaps://?q=Nelson+Cafe&center=-36.847273,174.760054`;
+        const appCheck = new Image(); // Used for detecting app existence
+        appCheck.onerror = function () {
+          // If Google Maps is not installed, fallback to Apple Maps
+          window.location.href = appleMapsURL;
+        };
+        appCheck.onload = function () {
+          // If Google Maps is installed
+          window.location.href = googleMapsAppURL;
+        };
+        appCheck.src = `comgooglemaps://favicon.ico`; // Attempt to check for Google Maps existence
+      } else if (isAndroid) {
+        // Android devices: Always open Google Maps
+        const intentURL = `intent://${googleReviewURL.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.google.android.apps.maps;end;`;
+        window.location.href = intentURL;
+      } else {
+        // Fallback: Open in the browser (non-mobile devices or unsupported cases)
+        window.open(googleReviewURL, "_blank");
+      }
+    }
+  </script>
+  
 </body>
 </html>
