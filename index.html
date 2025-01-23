@@ -4,6 +4,7 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q95C5JEVQK"></script>
     <script>
+      /* Google Analytics Setup */
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -22,20 +23,20 @@
         }
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9; 
-            /* We'll override background in the main container with an orange tone */
+            background-color: #fefaf5; 
             color: #333;
-            text-align: center;
             line-height: 1.5;
+            text-align: center;
+            position: relative;
         }
         a {
             text-decoration: none;
             color: inherit;
         }
+
         /* ========== Header ========== */
         header {
-            /* We use a bold orange theme for the top */
-            background: #ff6f00;
+            background: #ff6f00; /* Orange theme */
             color: #fff;
             padding: 20px 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -48,105 +49,59 @@
         header p {
             font-size: 1.2rem;
         }
-        /* ========== Language Toggle Button ========== */
-        .language-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .language-toggle button {
-            background: #d32f2f; /* red accent for the toggle button */
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            margin-left: 5px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .language-toggle button:hover {
-            background: #b71c1c;
-        }
 
-        /* ========== Main Container ========== */
-        .main-container {
-            width: 95%;
-            max-width: 1000px;
-            margin: 20px auto;
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-        }
-
-        /* ========== Intro Section ========== */
-        .intro-section {
-            margin-bottom: 20px;
-        }
-        .intro-section h2 {
-            color: #e65100; /* deeper orange for headings */
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-        .intro-section p {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .address {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        /* ========== USP (Unique Selling Points) Section ========== */
-        .usp-section {
-            margin: 20px 0;
-        }
-        .usp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-        }
-        .usp-box {
-            background: #ffe0b2; /* light orange background */
-            border-left: 5px solid #d32f2f; /* red accent */
-            border-radius: 5px;
-            padding: 10px;
-            text-align: left;
-        }
-        .usp-box h3 {
-            color: #e65100;
-            margin-bottom: 5px;
-        }
-        .usp-box p {
-            color: #333;
-            font-size: 0.95rem;
-        }
-
-        /* ========== Marquee for Allergy Notice ========== */
+        /* ========== Marquee (Fixed at Top) ========== */
         .allergy-marquee {
-            margin: 20px 0;
-            background: #b71c1c; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #b71c1c; /* Deep red */
             color: #fff;
-            font-size: 1rem;
-            padding: 8px;
-            border-radius: 4px;
+            z-index: 9999;
+            padding: 6px 0;
         }
         .allergy-marquee marquee {
             font-weight: bold;
+            font-size: 1rem;
         }
 
-        /* ========== Menu Section ========== */
+        /* We add extra top padding on content so it doesn't hide under the fixed marquee */
+        .content-wrapper {
+            margin-top: 50px; 
+        }
+
+        /* ========== Prominent Note (Under Marquee) ========== */
+        .prominent-note {
+            background: #ffe0b2; /* Light orange */
+            border-left: 8px solid #e65100; /* Deeper orange accent */
+            color: #333;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .prominent-note span {
+            color: #e65100;
+        }
+
+        /* ========== Menu Section (First) ========== */
         .menu-section {
-            margin: 20px 0;
-            background: #fff3e0; /* a lighter orange for contrast */
+            width: 95%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #fff3e0; /* Soft background */
             padding: 20px;
             border-radius: 8px;
             border: 2px solid #ffb74d;
         }
         .menu-section h2 {
-            color: #d32f2f;
+            color: #d32f2f; /* Red accent for headings */
             margin-bottom: 15px;
             font-size: 1.6rem;
         }
@@ -180,29 +135,73 @@
             font-weight: bold;
         }
 
-        /* ========== "Wow" Factor Imagery (Optional) ========== */
+        /* ========== USP (Special Features - Appear After Menu) ========== */
+        .usp-section {
+            width: 95%;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        .usp-title {
+            color: #d32f2f;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .usp-box {
+            background: #ffe0b2; /* Light orange box */
+            border-left: 5px solid #d32f2f; /* Red accent */
+            border-radius: 5px;
+            padding: 10px;
+            text-align: left;
+        }
+        .usp-box h3 {
+            color: #e65100;
+            margin-bottom: 5px;
+        }
+        .usp-box p {
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        /* ========== Intro Section (After USP) ========== */
+        .intro-section {
+            width: 95%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .intro-section h2 {
+            color: #e65100;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .intro-section p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .address {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
         .wow-image {
             width: 100%;
-            margin: 20px 0;
-            border-radius: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* ========== Additional Info Section ========== */
-        .additional-info {
-            margin: 20px 0;
-            font-size: 0.95rem;
-        }
-        .additional-info p {
-            margin: 8px 0;
-        }
-        .additional-info p strong {
-            color: #e65100;
-        }
-
-        /* ========== The Footer from Provided Snippet ========== */
+        /* ========== Footer ========== */
         footer {
-            background-color: #2c3e50;
+            background-color: #ff6f00; /* Use the same orange as header for consistency */
             color: #fff;
             width: 100%;
             padding: 15px 0;
@@ -217,10 +216,11 @@
             text-decoration: none;
             color: #fff;
         }
+        /* ========== Modal (for QR and Contact Us) ========== */
         .modal {
             display: none;
             position: fixed;
-            z-index: 10;
+            z-index: 99999;
             left: 0;
             top: 0;
             width: 100%;
@@ -232,7 +232,6 @@
             background-color: #fff;
             margin: 15% auto;
             padding: 20px;
-            border: 1px solid #888;
             width: 300px;
             border-radius: 10px;
             position: relative;
@@ -255,15 +254,24 @@
             width: 80%;
             height: auto;
         }
-        /* ========== Media Queries ========== */
+        /* Contact Us Modal Buttons */
+        .contact-button {
+            background-color: #d32f2f;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .contact-button:hover {
+            background-color: #b71c1c;
+        }
+
+        /* ========== Responsive ========== */
         @media(max-width: 600px) {
-            .language-toggle {
-                position: static;
-                margin-top: 10px;
-            }
-            header {
-                text-align: center;
-            }
             .usp-grid {
                 grid-template-columns: 1fr;
             }
@@ -271,52 +279,28 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .intro-section, .menu-section, .usp-section {
+                margin: 10px auto;
+                padding: 10px;
+            }
         }
     </style>
 </head>
-
 <body>
+    <!-- HEADER -->
+    <header>
+        <h1 id="title-en">Nelson Cafe</h1>
+        <h1 id="title-ne" style="display:none;">नेल्सन क्याफे</h1>
+        <p id="tagline-en">A Taste of Nepali Culinary Arts in the Heart of Auckland</p>
+        <p id="tagline-ne" style="display:none;">न्युजील्यान्डको मुटु ऑकल्यान्डमा नेपाली पाककला</p>
+        <!-- Language Toggle -->
+        <div style="position:absolute; top:20px; right:20px;">
+            <button style="background:#d32f2f; color:#fff; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; margin-right:5px;" onclick="showEnglish()">English</button>
+            <button style="background:#d32f2f; color:#fff; border:none; padding:8px 16px; border-radius:4px; cursor:pointer;" onclick="showNepali()">नेपाली</button>
+        </div>
+    </header>
 
-<!-- ========== HEADER SECTION ========== -->
-<header>
-    <h1 id="title-en">Nelson Cafe</h1>
-    <h1 id="title-ne" style="display:none;">नेल्सन क्याफे</h1>
-
-    <p id="tagline-en">
-      A Taste of Nepali Culinary Arts in the Heart of Auckland
-    </p>
-    <p id="tagline-ne" style="display:none;">
-      न्युज़िल्यान्डको मुटु ऑकल्यान्डमा नेपाली पाक-कला
-    </p>
-
-    <!-- Language Toggle -->
-    <div class="language-toggle">
-        <button onclick="showEnglish()">English</button>
-        <button onclick="showNepali()">नेपाली</button>
-    </div>
-</header>
-
-<!-- ========== MAIN CONTENT ========== -->
-<div class="main-container">
-
-    <!-- INTRO SECTION -->
-    <div class="intro-section">
-        <h2 id="intro-title-en">Welcome to Nelson Cafe</h2>
-        <h2 id="intro-title-ne" style="display:none;">नेल्सन क्याफेमा स्वागत छ</h2>
-
-        <p id="intro-text-en">
-            We are located at <span class="address">19 Nelson Street, Auckland CBD</span>.
-            Come experience authentic Nepali flavors with fresh, made-to-order goodness.
-        </p>
-        <p id="intro-text-ne" style="display:none;">
-            हामी <span class="address">१९ नेल्सन स्ट्रिट, ऑकल्यान्ड सीबीडी</span>मा रहेका छौं।
-            ताजा, अर्डर पाएपछि मात्र बनाइने नेपালী स्वादको अनुभव लिनुहोस्।
-        </p>
-        <!-- A fun image or decorative element could go here -->
-        <img src="profile.jpg" alt="Nelson Cafe" class="wow-image">
-    </div>
-
-    <!-- Allergy Notice Marquee -->
+    <!-- MARQUEE (Fixed at Top) -->
     <div class="allergy-marquee">
         <marquee id="allergy-marquee-en" scrollamount="5" behavior="scroll" direction="left">
             Please be advised if you have any food allergy, talk with us before you order.
@@ -326,257 +310,307 @@
         </marquee>
     </div>
 
-    <!-- USP SECTION -->
-    <div class="usp-section">
-        <h2 id="usp-title-en" style="color:#d32f2f;">Our Special Highlights</h2>
-        <h2 id="usp-title-ne" style="display:none; color:#d32f2f;">हाम्रा विशेष सुविधाहरू</h2>
+    <!-- Page Content Wrapper (Extra top margin to avoid marquee overlap) -->
+    <div class="content-wrapper">
+        
+        <!-- PROMINENT NOTE UNDER MARQUEE -->
+        <div class="prominent-note" id="apology-en">
+            <span>Note:</span> We apologize for not selling pre-made food. All items are freshly prepared once you order.
+        </div>
+        <div class="prominent-note" id="apology-ne" style="display:none;">
+            <span>सूचना:</span> हामी तयार खाना बेच्दैनौं। तपाईं अर्डर गरेपछि मात्र ताजा परिकार बनाइन्छ।
+        </div>
 
-        <div class="usp-grid">
-            <!-- 10% discount for students -->
-            <div class="usp-box">
-                <h3 id="usp1-en">10% Student Discount</h3>
-                <h3 id="usp1-ne" style="display:none;">विद्यार्थीहरूलाई १०% छुट</h3>
-                <p id="usp1-text-en">
-                    Show your student ID and enjoy 10% off on all items, all day!
-                </p>
-                <p id="usp1-text-ne" style="display:none;">
-                    तपाईँको विद्यार्थी परिचय-पत्र देखाएर सबै परिकारमा १०% छुट पाउनुहोस्!
-                </p>
+        <!-- MENU SECTION (Now appears first) -->
+        <div class="menu-section">
+            <h2 id="menu-section-title-en">Our Menu</h2>
+            <h2 id="menu-section-title-ne" style="display:none;">हाम्रो मेनु</h2>
+            <div class="menu-lists">
+                <!-- Food Menu -->
+                <div class="menu-list">
+                    <h3 id="food-menu-title-en">Food Menu</h3>
+                    <h3 id="food-menu-title-ne" style="display:none;">खाना मेनु</h3>
+                    <div class="menu-item">
+                        <span id="food1-en">Chicken Fried Rice</span><span>$14.99</span>
+                        <span id="food1-ne" style="display:none;">चिकेन फ्राइड राइस</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="food2-en">Chicken Momo</span><span>$15.99</span>
+                        <span id="food2-ne" style="display:none;">चिकेन मम</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="food3-en">Chicken Lolipop</span><span>$15.99</span>
+                        <span id="food3-ne" style="display:none;">चिकेन ललिपप</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="food4-en">Chilli Momo</span><span>$15.99</span>
+                        <span id="food4-ne" style="display:none;">चिली मम</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="food5-en">Chicken Chowmein</span><span>$14.99</span>
+                        <span id="food5-ne" style="display:none;">चिकेन चाउमिन</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="food6-en">Veg Fried Rice / Noodles</span><span>$13.99</span>
+                        <span id="food6-ne" style="display:none;">भेज फ्राइड राइस / चाउमिन</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="food7-en">Deep Fried Sausage</span><span>$2.99</span>
+                        <span id="food7-ne" style="display:none;">डीप फ्राइड ससेज</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="food8-en">Chicken Wings (Deep Fried)</span><span>$3.99</span>
+                        <span id="food8-ne" style="display:none;">चिकेन विंग्स (डीप फ्राइड)</span>
+                    </div>
+                </div>
+                
+                <!-- Drink Menu -->
+                <div class="menu-list">
+                    <h3 id="drink-menu-title-en">Drink Menu</h3>
+                    <h3 id="drink-menu-title-ne" style="display:none;">पेय मेनु</h3>
+                    <div class="menu-item">
+                        <span id="drink1-en">Virgin Mojito</span><span>$6.99</span>
+                        <span id="drink1-ne" style="display:none;">भर्जिन मोहीटो</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="drink2-en">Strawberry Daiquiri</span><span>$6.99</span>
+                        <span id="drink2-ne" style="display:none;">स्ट्रबेरी डाइक्विरी</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="drink3-en">Mango Smoothie</span><span>$6.99</span>
+                        <span id="drink3-ne" style="display:none;">आँपको स्मूदी</span>
+                    </div>
+                    <div class="menu-item">
+                        <span id="drink4-en">Mango Lassi</span><span>$6.99</span>
+                        <span id="drink4-ne" style="display:none;">आँपको लस्सी</span>
+                    </div>
+                </div>
             </div>
-            <!-- Freshly made to order, no pre-made food -->
-            <div class="usp-box">
-                <h3 id="usp2-en">Made To Order</h3>
-                <h3 id="usp2-ne" style="display:none;">अर्डर पाएपछि मात्र बनाइने</h3>
-                <p id="usp2-text-en">
-                    We apologize for not selling pre-made food. Every dish is made fresh upon order.
-                </p>
-                <p id="usp2-text-ne" style="display:none;">
-                    हामी तयार खाना बिक्री नगर्दा क्षमा चाहन्छौं। सबै परिकार अर्डर पाएपछि मात्र बनाइन्छ।
-                </p>
+            <!-- Additional lines from the original menu photo -->
+            <p id="addon-info-en" style="color:#d32f2f; margin-top:15px;">
+                All hot beverages: $3.99 (Double Shot) <br>
+                10% Student Discount All Day <br>
+                We can try your own recipe!
+            </p>
+            <p id="addon-info-ne" style="color:#d32f2f; margin-top:15px; display:none;">
+                सबै तातो पेय पदार्थ: $3.99 (डबल सट) <br>
+                विद्यार्थीहरूलाई दिनभरि १०% छुट <br>
+                तपाईँको आफ्नै विधि पनि हामी बनाउन प्रयास गर्नेछौं!
+            </p>
+        </div>
+
+        <!-- SPECIAL FEATURES (USP) Section -->
+        <div class="usp-section">
+            <h2 class="usp-title" id="usp-title-en">Special Features</h2>
+            <h2 class="usp-title" id="usp-title-ne" style="display:none;">विशेष सुविधाहरू</h2>
+            <div class="usp-grid">
+                <!-- 10% discount for students -->
+                <div class="usp-box">
+                    <h3 id="usp1-en">10% Student Discount</h3>
+                    <h3 id="usp1-ne" style="display:none;">विद्यार्थीहरूलाई १०% छुट</h3>
+                    <p id="usp1-text-en">
+                        Show your student ID and enjoy 10% off on all items, all day!
+                    </p>
+                    <p id="usp1-text-ne" style="display:none;">
+                        विद्यार्थी परिचय-पत्र देखाएर सबै परिकारमा दिनभरि १०% छुट पाउनुहोस्!
+                    </p>
+                </div>
+                <!-- Freshly made to order, no pre-made food -->
+                <div class="usp-box">
+                    <h3 id="usp2-en">Made To Order</h3>
+                    <h3 id="usp2-ne" style="display:none;">अर्डर पाएपछि मात्र बनाइने</h3>
+                    <p id="usp2-text-en">
+                        Every dish is made fresh upon order. No pre-made food.
+                    </p>
+                    <p id="usp2-text-ne" style="display:none;">
+                        सबै परिकार अर्डर पाएपछि ताजा बनाइन्छ, कुनै तयार खाना छैन।
+                    </p>
+                </div>
+                <!-- A grade food safety -->
+                <div class="usp-box">
+                    <h3 id="usp3-en">A-Grade Food Safety</h3>
+                    <h3 id="usp3-ne" style="display:none;">ए-ग्रेड खाना सुरक्षा</h3>
+                    <p id="usp3-text-en">
+                        Your health matters. We are A-Grade certified.
+                    </p>
+                    <p id="usp3-text-ne" style="display:none;">
+                        तपाईंको स्वास्थ्य महत्त्वपूर्ण छ। हामी ए-ग्रेड सुरक्षा प्रमाणित छौं।
+                    </p>
+                </div>
+                <!-- Even drinks are freshly made -->
+                <div class="usp-box">
+                    <h3 id="usp4-en">Fresh Drinks</h3>
+                    <h3 id="usp4-ne" style="display:none;">ताज़ा पेय पदार्थ</h3>
+                    <p id="usp4-text-en">
+                        Even our drinks are freshly crafted just for you.
+                    </p>
+                    <p id="usp4-text-ne" style="display:none;">
+                        हाम्रो पेय पदार्थ पनि तपाईंका लागि ताज़ै बनाइन्छ।
+                    </p>
+                </div>
+                <!-- You can order your recipe -->
+                <div class="usp-box">
+                    <h3 id="usp5-en">Your Own Recipe</h3>
+                    <h3 id="usp5-ne" style="display:none;">तपाईंको आफ्नै विधि</h3>
+                    <p id="usp5-text-en">
+                        Have a unique idea? Let us try to make it happen.
+                    </p>
+                    <p id="usp5-text-ne" style="display:none;">
+                        आफ्नै अनौठो विधि छ? हामी बनाउन प्रयास गर्नेछौं।
+                    </p>
+                </div>
+                <!-- Nepali culinary arts on NZ produce -->
+                <div class="usp-box">
+                    <h3 id="usp6-en">Nepali Culinary & NZ Produce</h3>
+                    <h3 id="usp6-ne" style="display:none;">नेपाली पाककला र स्थानीय उपज</h3>
+                    <p id="usp6-text-en">
+                        Experience Nepali cuisine made with fresh local ingredients.
+                    </p>
+                    <p id="usp6-text-ne" style="display:none;">
+                        स्थानीय ताजा उपजबाट बनेको परम्परागत नेपाली खाना अनुभव गर्नुहोस्।
+                    </p>
+                </div>
+                <!-- Creative scape -->
+                <div class="usp-box">
+                    <h3 id="usp7-en">Creative Space</h3>
+                    <h3 id="usp7-ne" style="display:none;">रचनात्मक वातावरण</h3>
+                    <p id="usp7-text-en">
+                        Enjoy guitar, board games, and doodle to impress us!
+                    </p>
+                    <p id="usp7-text-ne" style="display:none;">
+                        गितार, बोर्ड गेम खेल्नुहोस्, र क्रियटिव ड्रइङ गरेर हामीलाई चकित पार्नुहोस्!
+                    </p>
+                </div>
+                <!-- Traditional Tea -->
+                <div class="usp-box">
+                    <h3 id="usp8-en">Traditional Tea</h3>
+                    <h3 id="usp8-ne" style="display:none;">परम्परागत चिया</h3>
+                    <p id="usp8-text-en">
+                        Savor our special Nepali tea prepared authentically.
+                    </p>
+                    <p id="usp8-ne" style="display:none;">
+                        परम्परागत शैलीमा तयार पारिएको विशेष नेपाली चिया स्वाद लिनुहोस्।
+                    </p>
+                </div>
             </div>
-            <!-- A grade food safety -->
-            <div class="usp-box">
-                <h3 id="usp3-en">A-Grade Food Safety</h3>
-                <h3 id="usp3-ne" style="display:none;">ए-ग्रेड खाना सुरक्षा</h3>
-                <p id="usp3-text-en">
-                    Your health matters. We are A-Grade certified in food safety standards.
-                </p>
-                <p id="usp3-text-ne" style="display:none;">
-                    तपाईंको स्वास्थ्य महत्त्वपूर्ण छ। हामी ए-ग्रेड खानपान सुरक्षा प्रमाणित छौं।
-                </p>
-            </div>
-            <!-- Even drinks are freshly made -->
-            <div class="usp-box">
-                <h3 id="usp4-en">Fresh Drinks</h3>
-                <h3 id="usp4-ne" style="display:none;">ताज़ा पेय पदार्थ</h3>
-                <p id="usp4-text-en">
-                    Yes, even our drinks are freshly crafted just for you.
-                </p>
-                <p id="usp4-text-ne" style="display:none;">
-                    हो, हाम्रो पेय पदार्थ पनि तपाईंका लागि ताज़ै बनाइन्छ।
-                </p>
-            </div>
-            <!-- You can order your recipe -->
-            <div class="usp-box">
-                <h3 id="usp5-en">Your Own Recipe</h3>
-                <h3 id="usp5-ne" style="display:none;">तपाईंको आफ्नै विधि</h3>
-                <p id="usp5-text-en">
-                    Have a unique idea? Let us try to make it happen.
-                </p>
-                <p id="usp5-text-ne" style="display:none;">
-                    तपाईंको आफ्नै अनौठो विधि छ? हामी प्रयास गर्नेछौं।
-                </p>
-            </div>
-            <!-- Nepali culinary arts on NZ produces -->
-            <div class="usp-box">
-                <h3 id="usp6-en">Nepali Culinary & NZ Produce</h3>
-                <h3 id="usp6-ne" style="display:none;">नेपाली पाककला र न्युजील्यान्ड उपज</h3>
-                <p id="usp6-text-en">
-                    Experience traditional Nepali cuisine made with fresh local ingredients.
-                </p>
-                <p id="usp6-text-ne" style="display:none;">
-                    स्थानीय ताजा उपजबाट तयार पारिएको परम्परागत नेपाली खाना अनुभव गर्नुहोस्।
-                </p>
-            </div>
-            <!-- Creative scape -->
-            <div class="usp-box">
-                <h3 id="usp7-en">Creative Space</h3>
-                <h3 id="usp7-ne" style="display:none;">रचनात्मक वातावरण</h3>
-                <p id="usp7-text-en">
-                    Enjoy guitar, board games, and even doodle to impress us!
-                </p>
-                <p id="usp7-text-ne" style="display:none;">
-                    गितार, बोर्ड गेमहरूको मज्जा लिनुहोस्, र ड्राइंग गरेर हामीलाई चकित पार्नुहोस्!
-                </p>
-            </div>
-            <!-- Traditional Tea -->
-            <div class="usp-box">
-                <h3 id="usp8-en">Traditional Tea</h3>
-                <h3 id="usp8-ne" style="display:none;">परम्परागत चिया</h3>
-                <p id="usp8-text-en">
-                    Savor our special Nepali tea prepared in an authentic way.
-                </p>
-                <p id="usp8-text-ne" style="display:none;">
-                    परम्परागत शैलीमा तयार पारिएको हाम्रो विशेष नेपाली चिया स्वाद लिनुहोस्।
-                </p>
-            </div>
+        </div>
+
+        <!-- INTRO SECTION (After Menu and USP) -->
+        <div class="intro-section">
+            <h2 id="intro-title-en">Welcome to Nelson Cafe</h2>
+            <h2 id="intro-title-ne" style="display:none;">नेल्सन क्याफेमा स्वागत छ</h2>
+            <p id="intro-text-en">
+                We are located at <span class="address">19 Nelson Street, Auckland CBD</span>.
+                Come experience authentic Nepali flavors with fresh, made-to-order goodness.
+            </p>
+            <p id="intro-text-ne" style="display:none;">
+                हामी <span class="address">१९ नेल्सन स्ट्रिट, ऑकल्यान्ड सीबीडी</span>मा अवस्थित छौं।
+                ताजा, अर्डर पाएपछि मात्र बनाइने नेपाली स्वादको अनुभव लिनुहोस्।
+            </p>
+            <img src="profile.jpg" alt="Nelson Cafe" class="wow-image">
+        </div>
+    </div> <!-- End content-wrapper -->
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <b>
+            <a href="#" onclick="showQRModal()" style="color: #fff; text-decoration: none; margin-right: 20px;">
+                <i class="fas fa-qrcode"></i> QR
+            </a>
+            <!-- Contact Us Button triggers contact modal -->
+            <button onclick="showContactModal()" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer;">
+                <i class="fas fa-address-book"></i> <b>Contact Us</b>
+            </button>
+        </b>
+    </footer>
+
+    <!-- QR Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeQRModal()">&times;</span>
+            <img src="qr.png" alt="QR Code" class="qr-img">
+            <p>Thank you for sharing :)</p>
         </div>
     </div>
 
-    <!-- MENU SECTION -->
-    <div class="menu-section">
-        <h2 id="menu-section-title-en">Our Menu</h2>
-        <h2 id="menu-section-title-ne" style="display:none;">हाम्रो मेनु</h2>
-
-        <div class="menu-lists">
-            <!-- Food Menu -->
-            <div class="menu-list">
-                <h3 id="food-menu-title-en">Food Menu</h3>
-                <h3 id="food-menu-title-ne" style="display:none;">खाना मेनु</h3>
-                <div class="menu-item"><span id="food1-en">Chicken Fried Rice</span><span>$14.99</span></div>
-                <div class="menu-item"><span id="food1-ne" style="display:none;">चिकेन फ्राइड राइस</span><span style="display:none;">$14.99</span></div>
-
-                <div class="menu-item"><span id="food2-en">Chicken Momo</span><span>$15.99</span></div>
-                <div class="menu-item"><span id="food2-ne" style="display:none;">चिकेन मम</span><span style="display:none;">$15.99</span></div>
-
-                <div class="menu-item"><span id="food3-en">Chicken Lolipop</span><span>$15.99</span></div>
-                <div class="menu-item"><span id="food3-ne" style="display:none;">चिकेन ललिपप</span><span style="display:none;">$15.99</span></div>
-
-                <div class="menu-item"><span id="food4-en">Chilli Momo</span><span>$15.99</span></div>
-                <div class="menu-item"><span id="food4-ne" style="display:none;">चिली मम</span><span style="display:none;">$15.99</span></div>
-
-                <div class="menu-item"><span id="food5-en">Chicken Chowmein</span><span>$14.99</span></div>
-                <div class="menu-item"><span id="food5-ne" style="display:none;">चिकेन चाउमिन</span><span style="display:none;">$14.99</span></div>
-
-                <div class="menu-item"><span id="food6-en">Veg Fried Rice / Noodles</span><span>$13.99</span></div>
-                <div class="menu-item"><span id="food6-ne" style="display:none;">भेज फ्राइड राइस / चाउमिन</span><span style="display:none;">$13.99</span></div>
-
-                <div class="menu-item"><span id="food7-en">Deep Fried Sausage</span><span>$2.99</span></div>
-                <div class="menu-item"><span id="food7-ne" style="display:none;">डीप फ्राइड ससेज</span><span style="display:none;">$2.99</span></div>
-
-                <div class="menu-item"><span id="food8-en">Chicken Wings (Deep Fried)</span><span>$3.99</span></div>
-                <div class="menu-item"><span id="food8-ne" style="display:none;">डीप फ्राइड चिकेन विंग्स</span><span style="display:none;">$3.99</span></div>
-            </div>
-
-            <!-- Drink Menu -->
-            <div class="menu-list">
-                <h3 id="drink-menu-title-en">Drink Menu</h3>
-                <h3 id="drink-menu-title-ne" style="display:none;">पेय मेनु</h3>
-                <div class="menu-item"><span id="drink1-en">Virgin Mojito</span><span>$6.99</span></div>
-                <div class="menu-item"><span id="drink1-ne" style="display:none;">भर्जिन मोहीटो</span><span style="display:none;">$6.99</span></div>
-
-                <div class="menu-item"><span id="drink2-en">Strawberry Daiquiri</span><span>$6.99</span></div>
-                <div class="menu-item"><span id="drink2-ne" style="display:none;">स्ट्रबेरी डाइक्विरी</span><span style="display:none;">$6.99</span></div>
-
-                <div class="menu-item"><span id="drink3-en">Mango Smoothie</span><span>$6.99</span></div>
-                <div class="menu-item"><span id="drink3-ne" style="display:none;">आँपको स्मूदी</span><span style="display:none;">$6.99</span></div>
-
-                <div class="menu-item"><span id="drink4-en">Mango Lassi</span><span>$6.99</span></div>
-                <div class="menu-item"><span id="drink4-ne" style="display:none;">आँपको लस्सी</span><span style="display:none;">$6.99</span></div>
-            </div>
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <h3 style="margin-bottom:10px;">Contact Nelson Cafe</h3>
+            <button class="contact-button" onclick="callCafe()">Call +64 220355726</button>
+            <button class="contact-button" onclick="smsCafe()">SMS +64 220355726</button>
+            <button class="contact-button" onclick="saveCafeContact()">Save VCard</button>
         </div>
-
-        <!-- Additional lines from the original menu photo -->
-        <p id="addon-info-en" style="color:#d32f2f; margin-top:15px;">
-            All hot beverages: $3.99 (Double Shot) <br>
-            10% Student Discount All Day <br>
-            We can try your own recipe!
-        </p>
-        <p id="addon-info-ne" style="color:#d32f2f; margin-top:15px; display:none;">
-            सबै तातो पेय पदार्थ: $3.99 (डबल सट) <br>
-            विद्यार्थीहरूलाई दिनभरि १०% छुट <br>
-            तपाईँको आफ्नै विधि पनि हामी बनाउन प्रयास गर्नेछौं!
-        </p>
     </div>
 
-    <!-- ADDITIONAL INFO (apology, etc.) -->
-    <div class="additional-info">
-        <p id="apology-en">
-            <strong>Note:</strong> We apologize for not selling pre-made food, all items are freshly prepared.
-        </p>
-        <p id="apology-ne" style="display:none;">
-            <strong>ध्यान दिनुहोस्ः</strong> हामी तयार खाना बेच्दैनौं, सबै परिकार अर्डर पाएपछि ताजा बनाइन्छ।
-        </p>
-    </div>
-
-</div><!-- end main-container -->
-
-<!-- ========== FOOTER SECTION (Provided Snippet) ========== -->
-<footer>
-    <b>
-      <a href="#" onclick="showModal()" style="color: #fff; text-decoration: none; margin-right: 20px;">
-        <i class="fas fa-qrcode"></i>QR
-      </a>
-      <button onclick="saveContact()" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer;">
-        <i class="fas fa-save"></i> <b>Save My Contact</b>
-      </button>
-      <a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;"> 
-        <i class="fas fa-tools"></i> By
-      </a>
-    </b>
-</footer>
-
-<!-- QR Modal -->
-<div id="qrModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img src="qr.png" alt="QR Code" class="qr-img">
-        <p>Thank you for sharing :)</p>
-    </div>
-</div>
-
-<script>
-    /* ========== Language Toggle ========== */
-    function showEnglish() {
-        // Hide all Nepali text
-        const nepaliElements = document.querySelectorAll('[id*="-ne"]');
-        nepaliElements.forEach(el => el.style.display = 'none');
-        // Show all English text
-        const englishElements = document.querySelectorAll('[id*="-en"]');
-        englishElements.forEach(el => el.style.display = '');
-    }
-    function showNepali() {
-        // Hide all English text
-        const englishElements = document.querySelectorAll('[id*="-en"]');
-        englishElements.forEach(el => el.style.display = 'none');
-        // Show all Nepali text
-        const nepaliElements = document.querySelectorAll('[id*="-ne"]');
-        nepaliElements.forEach(el => el.style.display = '');
-    }
-
-    /* ========== Modal for QR Code ========== */
-    function showModal() {
-        document.getElementById("qrModal").style.display = "block";
-    }
-    function closeModal() {
-        document.getElementById("qrModal").style.display = "none";
-    }
-    window.onclick = function(event) {
-        if (event.target === document.getElementById("qrModal")) {
-            closeModal();
+    <script>
+        /* ========== Language Toggle ========== */
+        function showEnglish() {
+            // Hide all Nepali text
+            const nepaliElements = document.querySelectorAll('[id*="-ne"]');
+            nepaliElements.forEach(el => el.style.display = 'none');
+            // Show all English text
+            const englishElements = document.querySelectorAll('[id*="-en"]');
+            englishElements.forEach(el => el.style.display = '');
         }
-    }
+        function showNepali() {
+            // Hide all English text
+            const englishElements = document.querySelectorAll('[id*="-en"]');
+            englishElements.forEach(el => el.style.display = 'none');
+            // Show all Nepali text
+            const nepaliElements = document.querySelectorAll('[id*="-ne"]');
+            nepaliElements.forEach(el => el.style.display = '');
+        }
 
-    /* ========== Save Contact (Uses Provided VCard) ========== */
-    function saveContact() {
-        var vCardData = "BEGIN:VCARD\n" +
-            "VERSION:3.0\n" +
-            "FN:Suraj Sapkota\n" +
-            "ORG:Everest Travel\n" +
-            "TEL;TYPE=WORK,VOICE:+6498368848\n" +
-            "TEL;TYPE=CELL,VOICE:+64211871550\n" +
-            "EMAIL;TYPE=PREF,INTERNET:info@everesttravel.co.nz\n" +
-            "URL:https://everesttravel.co.nz\n" +
-            "END:VCARD";
+        /* ========== QR Modal Functions ========== */
+        function showQRModal() {
+            document.getElementById("qrModal").style.display = "block";
+        }
+        function closeQRModal() {
+            document.getElementById("qrModal").style.display = "none";
+        }
+        /* Close modal if user clicks outside the content */
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("qrModal")) {
+                closeQRModal();
+            }
+            if (event.target === document.getElementById("contactModal")) {
+                closeContactModal();
+            }
+        }
 
-        var blob = new Blob([vCardData], {type: "text/vcard"});
-        var link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = "SurajSapkota.vcf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-</script>
+        /* ========== Contact Modal Functions ========== */
+        function showContactModal() {
+            document.getElementById("contactModal").style.display = "block";
+        }
+        function closeContactModal() {
+            document.getElementById("contactModal").style.display = "none";
+        }
+
+        /* ========== Contact Actions ========== */
+        function callCafe() {
+            window.location.href = "tel:+64220355726";
+        }
+        function smsCafe() {
+            window.location.href = "sms:+64220355726";
+        }
+        function saveCafeContact() {
+            var vCardData = "BEGIN:VCARD\n" +
+                "VERSION:3.0\n" +
+                "FN:Nelson Cafe\n" +
+                "ORG:Nelson Cafe\n" +
+                "TEL;TYPE=WORK,VOICE:+64220355726\n" +
+                "END:VCARD";
+
+            var blob = new Blob([vCardData], {type: "text/vcard"});
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "NelsonCafe.vcf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 </body>
 </html>
