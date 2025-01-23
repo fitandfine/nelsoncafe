@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q95C5JEVQK"></script>
-    <script>
-      /* Google Analytics Setup */
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Q95C5JEVQK');
-    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T3DZXRCQ6H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-T3DZXRCQ6H');
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nelson Cafe - Single Page</title>
+    <title>Nelson Cafe - Menu</title>
     <style>
         /* ========== Basic Reset & Global Styles ========== */
         * {
@@ -289,12 +289,14 @@
 <body>
     <!-- HEADER -->
     <header>
+      <br>
+      <br>
         <h1 id="title-en">Nelson Cafe</h1>
         <h1 id="title-ne" style="display:none;">नेल्सन क्याफे</h1>
         <p id="tagline-en">A Taste of Nepali Culinary Arts in the Heart of Auckland</p>
         <p id="tagline-ne" style="display:none;">न्युजील्यान्डको मुटु ऑकल्यान्डमा नेपाली पाककला</p>
         <!-- Language Toggle -->
-        <div style="position:absolute; top:20px; right:20px;">
+        <div >
             <button style="background:#d32f2f; color:#fff; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; margin-right:5px;" onclick="showEnglish()">English</button>
             <button style="background:#d32f2f; color:#fff; border:none; padding:8px 16px; border-radius:4px; cursor:pointer;" onclick="showNepali()">नेपाली</button>
         </div>
@@ -312,6 +314,20 @@
 
     <!-- Page Content Wrapper (Extra top margin to avoid marquee overlap) -->
     <div class="content-wrapper">
+         <!-- INTRO SECTION (After Menu and USP) -->
+         <div class="intro-section">
+            <h2 id="intro-title-en">Welcome to Nelson Cafe</h2>
+            <h2 id="intro-title-ne" style="display:none;">नेल्सन क्याफेमा स्वागत छ</h2>
+            <p id="intro-text-en">
+                We are located at <span class="address">19 Nelson Street, Auckland CBD</span>.
+                Come experience authentic Nepali flavors with fresh, made-to-order goodness.
+            </p>
+            <p id="intro-text-ne" style="display:none;">
+                हामी <span class="address">१९ नेल्सन स्ट्रिट, ऑकल्यान्ड सीबीडी</span>मा अवस्थित छौं।
+                ताजा, अर्डर पाएपछि मात्र बनाइने नेपाली स्वादको अनुभव लिनुहोस्।
+            </p>
+            <img src="profile.jpg" alt="Nelson Cafe" class="wow-image">
+        </div>
         
         <!-- PROMINENT NOTE UNDER MARQUEE -->
         <div class="prominent-note" id="apology-en">
@@ -495,32 +511,21 @@
             </div>
         </div>
 
-        <!-- INTRO SECTION (After Menu and USP) -->
-        <div class="intro-section">
-            <h2 id="intro-title-en">Welcome to Nelson Cafe</h2>
-            <h2 id="intro-title-ne" style="display:none;">नेल्सन क्याफेमा स्वागत छ</h2>
-            <p id="intro-text-en">
-                We are located at <span class="address">19 Nelson Street, Auckland CBD</span>.
-                Come experience authentic Nepali flavors with fresh, made-to-order goodness.
-            </p>
-            <p id="intro-text-ne" style="display:none;">
-                हामी <span class="address">१९ नेल्सन स्ट्रिट, ऑकल्यान्ड सीबीडी</span>मा अवस्थित छौं।
-                ताजा, अर्डर पाएपछि मात्र बनाइने नेपाली स्वादको अनुभव लिनुहोस्।
-            </p>
-            <img src="profile.jpg" alt="Nelson Cafe" class="wow-image">
-        </div>
+       
     </div> <!-- End content-wrapper -->
 
     <!-- ========== FOOTER ========== -->
     <footer>
         <b>
+            <a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;">  <i class="fas fa-tools"></i>  By</a>
+            
+            <!-- Contact Us Button triggers contact modal -->
+            <button onclick="showContactModal()" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer;">
+                <i class="fas fa-address-book"></i> <b> Contact Us </b>
+            </button>
             <a href="#" onclick="showQRModal()" style="color: #fff; text-decoration: none; margin-right: 20px;">
                 <i class="fas fa-qrcode"></i> QR
             </a>
-            <!-- Contact Us Button triggers contact modal -->
-            <button onclick="showContactModal()" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer;">
-                <i class="fas fa-address-book"></i> <b>Contact Us</b>
-            </button>
         </b>
     </footer>
 
@@ -540,7 +545,7 @@
             <h3 style="margin-bottom:10px;">Contact Nelson Cafe</h3>
             <button class="contact-button" onclick="callCafe()">Call +64 220355726</button>
             <button class="contact-button" onclick="smsCafe()">SMS +64 220355726</button>
-            <button class="contact-button" onclick="saveCafeContact()">Save VCard</button>
+            <button class="contact-button" onclick="saveCafeContact()">Save Number</button>
         </div>
     </div>
 
